@@ -1,0 +1,20 @@
+{
+  "name": "@monorepo/foo-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@monorepo/tsconfig": "workspace:*",
+    "@types/react": "^18.3.12"
+  }
+}

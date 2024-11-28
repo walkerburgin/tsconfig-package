@@ -1,0 +1,7 @@
+{
+  "extends": "@monorepo/tsconfig/web.json",
+  "include": ["src"],
+  "references": [
+    { "path": "../foo-lib" }
+  ]
+}

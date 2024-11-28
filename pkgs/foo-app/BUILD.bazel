@@ -1,0 +1,44 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library", "js_run_binary", "js_run_devserver")
+load("@aspect_rules_swc//swc:defs.bzl", "swc")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@bazel_skylib//lib:partial.bzl", "partial")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages(name = "node_modules")
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+    deps = [":node_modules"]
+)
+
+ts_project(
+    name = "typescript",
+    srcs = [
+        "src/App.tsx",
+        "src/main.tsx",
+    ],
+    deps = [":node_modules"],
+    assets = [],
+    tsconfig = ":tsconfig",
+    transpiler = partial.make(swc, swcrc = ".swcrc", out_dir = "dist", root_dir = "src"),
+
+    composite = True,
+    incremental = True,
+    out_dir = "dist",
+    root_dir = "src",
+)
+
+js_library(
+    name = "pkg",
+    srcs = [
+        "package.json",
+        "tsconfig.json",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "foo-app",
+    srcs = ["pkg", "typescript_typecheck"],
+)

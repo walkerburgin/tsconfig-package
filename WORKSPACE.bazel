@@ -1,0 +1,5 @@
+# Created by aspect-workflows-template
+#
+# This file is a marker indicating the root of a Bazel workspace.
+# See MODULE.bazel for dependency information.
+# NB: after ibazel supports MODULE.bazel as the marker, this file may no longer be needed.

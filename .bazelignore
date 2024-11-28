@@ -1,0 +1,4 @@
+node_modules
+pkgs/foo-app/node_modules
+pkgs/foo-lib/node_modules
+pkgs/tsconfig/node_modules

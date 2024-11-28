@@ -1,0 +1,11 @@
+{
+  "name": "cross-package-repro",
+  "private": true,
+  "devDependencies": {
+    "@eslint/js": "^9",
+    "eslint": "^9",
+    "prettier": "^3",
+    "typescript": "5.7.2",
+    "typescript-eslint": "^7"
+  }
+}
